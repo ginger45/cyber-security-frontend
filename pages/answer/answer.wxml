@@ -1,0 +1,42 @@
+<!--pages/answer/answer.wxml-->
+<view class="container">
+  <image class="bgImg" src="../../images/答题背景.png" ></image>
+
+  <view class="putpic">
+    <image class="smallpic" mode="aspectFit" src="../../images/举手图.png"></image>
+  </view>
+
+  <!--透明区域-->
+  <view class="mainblock">
+    <!--题目区-->
+    <view class="titleblock">
+      <form action="" bindsubmit="formSubmit">
+        <!--问题-->
+        <view class="title">
+          <text class="titletext">
+            题目一个好友和与国会拨款九年，
+          </text>
+        </view>
+
+        <!--选项-->
+        <view class="option">
+          <radio-group class="radio-group">
+            <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.  checked}}">
+                  <text>{{item.value}}</text>
+            </radio>
+          </radio-group>
+        </view>
+        <view class="btn-area">
+          <button class="button" formType="submit" bindtap="showDialogBtn">确认</button>
+        </view>
+      </form>
+    </view>
+  </view>
+
+</view>
+
+<view class="modal_mask" bindtap="hideModal" wx:if="{{showModal}}"></view>
+<view class="modal_dialog" style="background:url('../../images/answer_result.png') center center no-repeat; width:60%; height:70%; background-size: cover;" wx:if="{{showModal}}">
+</view>
+<view class="okBtn" bindtap="hideModal" style="background:url('../../images/ok_btn.png') center center no-repeat; width:20%; height:5%; background-size: cover;"  wx:if="{{showModal}}">
+</view>

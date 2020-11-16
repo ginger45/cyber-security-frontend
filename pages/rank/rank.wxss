@@ -1,0 +1,100 @@
+/* pages/rank/rank.wxss */
+
+
+.bgImg{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -999;
+}
+
+.mainblock{
+  position: absolute;
+  top: 8%;
+  height:92%;
+  border-color:red;
+}
+.title{
+  align-items: center;
+  justify-content: space-between;
+  height:20%;
+}
+.rankshow{
+  position: absolute;
+  top: 20%;
+  height:70vh;
+  left: 5%;
+  right: 5%;
+  opacity: 0.4;
+  border-radius: 5%;
+  background-color:  #ffffff;
+  z-index: -555;
+}
+
+.item-box {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20rpx 0;
+}
+
+.items {
+  width: 100%;
+}
+
+.item {
+  position: relative;
+  border-top: 2rpx solid #eee;
+  height: 115rpx;
+  line-height: 115rpx;
+  overflow: hidden;
+}
+
+.inner.txt {
+  background-color: #fff;
+  width: 100%;
+  z-index: 5;
+  padding: 0 10rpx;
+  transition: left 0.2s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.item-icon {
+  width: 64rpx;
+  height: 64rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+  margin-left: 50rpx;
+  border-radius: 50%;
+}
+.score {
+  float: right;
+  margin-right: 10%;
+}
+
+.rankpace {
+  color: #fa7e04;
+}
+
+.inner.del {
+  background-color: #e64340;
+  width: 180rpx;
+  text-align: center;
+  z-index: 4;
+  right: 0;
+  color: #fff;
+}
+
+view {
+  box-sizing: border-box;
+}
+
+.item:last-child {
+  border-bottom: 2rpx solid #eee;
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+}
+
