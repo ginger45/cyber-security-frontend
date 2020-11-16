@@ -39,7 +39,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.14.0",
   "appid": "wx342c09805bc91822",
-  "projectname": "0TEST",
+  "projectname": "cyber-security-frontend",
   "debugOptions": {
     "hidedInDevtools": []
   },
