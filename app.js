@@ -93,6 +93,7 @@ App({
     baseUrl:"https://cs.lyxiang.xyz",
     userInfo: null,
     headerSn:"MzU0YWIxMjJjZGY0MzM4Ml8zMzg1ODQ3Nzc1Lzc5MDU=",
+    questionList:{}
   }
 })
 

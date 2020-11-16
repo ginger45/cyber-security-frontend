@@ -68,6 +68,7 @@ Page({
           app.globalData.headerSn = res.data.data.sn;
           console.log(res.data);
           console.log(app.globalData.headerSn)
+         
           //获取积分等数据
           app.getData('/user/self',function(res){
             app.globalData.userInfo=res.data.data

@@ -9,14 +9,16 @@ Page({
     background: '../../images/difficulty_bg.jpg',
     difficulty_logo: "../../images/difficulty_logo.png"
   },
-  
+
   changetoanswer:function(){
     // 获取题目并跳转页面
     app.getData('/question?type=2',function(res){
       console.log(res.data)
-    })
-    wx.navigateTo({
-      url: '../answer/answer',
+      app.globalData.questionList=res.data.data.questionList
+      console.log(app.globalData.questionList)
+      wx.navigateTo({
+        url: '../answer/answer',
+      })
     })
   },
 
