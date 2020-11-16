@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    score:250,
+    userInfo:{},
+    score:0,
     showModal: false,
   },
 
@@ -18,10 +19,26 @@ Page({
   },
   
   signEveryDay: function() {
-    this.setData({
-      showModal: true
-    })
-  },
+    const that=this
+    app.postData('/user/checkin',{},function(res){
+      console.log(res.data)
+      //第一次签到
+      if(res.data.code==200)
+      {
+         //获取积分
+      app.getData('/user/self',function(res){
+        app.globalData.score=res.data.data.score
+        that.setData({
+          score:app.globalData.score,
+          showModal:true
+        })
+      })
+
+      }
+     
+    
+  })
+},
 
   okBtn: function () {
     this.hideModal();
@@ -40,12 +57,31 @@ Page({
   },
 
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    }
+    const that=this
+    //获取积分等数据
+          app.getData('/user/self',function(res){
+            app.globalData.userInfo=res.data.data
+            app.globalData.score=res.data.data.score
+            console.log(res.data)
+            console.log(app.globalData.userInfo)
+            console.log(app.globalData.score)
+            that.setData({
+
+              userInfo: app.globalData.userInfo,
+              score:app.globalData.score
+            })
+
+          })
+
+    // if (app.globalData.userInfo) {
+    //   this.setData({
+    //     userInfo: app.globalData.userInfo,
+    //     hasUserInfo: true,
+    //     score:app.globalData.score
+    //   })
+    // }
+    console.log(this.data.score)
+    
   },
   /**
    * 生命周期函数--监听页面加载

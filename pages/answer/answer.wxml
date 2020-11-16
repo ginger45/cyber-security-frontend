@@ -21,7 +21,7 @@
         <!--选项-->
         <view class="option">
           <radio-group class="radio-group">
-            <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.  checked}}">
+            <radio class="radio" wx:for="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.  checked}}">
                   <text>{{item.value}}</text>
             </radio>
           </radio-group>

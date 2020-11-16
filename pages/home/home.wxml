@@ -4,8 +4,8 @@
   <view class="content">
     <view class="userInfo">
       <view class="user">
-        <image bindtap="" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <view class="nickname">{{userInfo.nickName}}</view>
+        <image bindtap="" class="userinfo-avatar" src="{{userInfo.image}}" mode="cover"></image>
+        <view class="nickname">{{userInfo.nickname}}</view>
       </view>
       <view class="sign_score">
         <view class="signBtn" bindtap="signEveryDay">点击签到</view>
