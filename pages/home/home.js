@@ -70,6 +70,7 @@ Page({
               userInfo: app.globalData.userInfo,
               score:app.globalData.score
             })
+            console.log(that.data.score)
 
           })
 
@@ -80,7 +81,7 @@ Page({
     //     score:app.globalData.score
     //   })
     // }
-    console.log(this.data.score)
+    
     
   },
   /**

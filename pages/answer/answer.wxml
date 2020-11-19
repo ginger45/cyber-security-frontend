@@ -10,25 +10,26 @@
   <view class="mainblock">
     <!--题目区-->
     <view class="titleblock">
-      <form action="" bindsubmit="formSubmit">
+      <form action="" bindsubmit="formSubmit" name="radio">
         <!--问题-->
         <view class="title">
           <text class="titletext">
-            题目一个好友和与国会拨款九年，
+            {{question.content}}
           </text>
         </view>
-
         <!--选项-->
         <view class="option">
-          <radio-group class="radio-group">
-            <radio class="radio" wx:for="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.  checked}}">
-                  <text>{{item.value}}</text>
+          <radio-group class="radio-group" name="radio" bindchange="radioChange"> 
+            <radio class="radio" wx:for="{{question.optionList}}" wx:key="optionId" value="{{item.optionId}}" checked="{{item.checked}}">
+                  <text>{{item.content}}</text>
             </radio>
           </radio-group>
         </view>
         <view class="btn-area">
           <button class="button" formType="submit" bindtap="showDialogBtn">确认</button>
+          <button wx:if="{{item<9}}" bindtap="nextQue" class="button"> 下一题</button>
         </view>
+      
       </form>
     </view>
   </view>

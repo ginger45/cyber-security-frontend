@@ -92,7 +92,7 @@ App({
   globalData: {
     baseUrl:"https://cs.lyxiang.xyz",
     userInfo: null,
-    headerSn:"ZjgyYjZkY2M3MWNmMzQxOV80Mjk0MjQxMjQ2Lzk4OTM=",
+    headerSn:"YzJjY2I3MzE5YzViYzcyNl8zNjkwNjUxNTExLzEwMzc=",
     score:0,
     questionList:{}
   }
