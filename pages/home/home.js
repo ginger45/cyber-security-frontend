@@ -7,8 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:{},
-    score:0,
+    userInfo: {},
+    score: 0,
     showModal: false,
   },
 
@@ -22,21 +22,19 @@ Page({
     const that=this
     app.postData('/user/checkin',{},function(res){
       console.log(res.data)
-      //第一次签到
-      if(res.data.code==200)
-      {
-         //获取积分
-      app.getData('/user/self',function(res){
-        app.globalData.score=res.data.data.score
-        that.setData({
-          score:app.globalData.score,
-          showModal:true
+      //签到成功
+      if(res.data.code==200) {
+        //重新获取用户信息
+        app.getData('/user/self',function(res){
+          app.globalData.score=res.data.data.score
+          if (res.data.code == 200) {
+            that.setData({
+              score:app.globalData.score,
+              showModal:true
+            })
+          }
         })
-      })
-
       }
-     
-    
   })
 },
 
@@ -58,21 +56,21 @@ Page({
 
   onLoad: function () {
     const that=this
-    //获取积分等数据
-          app.getData('/user/self',function(res){
-            app.globalData.userInfo=res.data.data
-            app.globalData.score=res.data.data.score
-            console.log(res.data)
-            console.log(app.globalData.userInfo)
-            console.log(app.globalData.score)
-            that.setData({
-
-              userInfo: app.globalData.userInfo,
-              score:app.globalData.score
-            })
-            console.log(that.data.score)
-
-          })
+    //获取用户自己的信息
+    app.getData('/user/self',function(res){
+      if (res.data.code == 200) {
+        app.globalData.userInfo=res.data.data
+        app.globalData.score=res.data.data.score
+        that.setData({
+          userInfo: app.globalData.userInfo,
+          score: app.globalData.score
+        })
+      } else if (res.data.code == 401) {
+        wx.navigateTo({
+          url: '../index/index',
+        })
+      }
+    })
 
     // if (app.globalData.userInfo) {
     //   this.setData({

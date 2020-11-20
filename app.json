@@ -5,7 +5,8 @@
     "pages/difficulty/difficulty",
     "pages/answer/answer",
     "pages/home/home",
-    "pages/rank/rank"
+    "pages/rank/rank",
+    "pages/article/article"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -7,7 +7,7 @@ Page({
     background: '../../images/index_bg.png',
     index_logo: '../../images/index_logo.png',
     motto: 'Hello World',
-    userInfo: {},
+    userInfo: {},  // 从微信获取的用户信息
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
@@ -19,9 +19,10 @@ Page({
   },
 
   onLoad: function () {
+    // 检查有没有用户信息
     if (app.globalData.userInfo) {
       this.setData({
-        userInfo: app.globalData.userInfo,
+        // userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
     } else if (this.data.canIUse){
@@ -37,7 +38,7 @@ Page({
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
-          app.globalData.userInfo = res.userInfo
+          // app.globalData.userInfo = res.userInfo
           this.setData({
             userInfo: res.userInfo,
             hasUserInfo: true
@@ -46,36 +47,29 @@ Page({
       })
     }
   },
+
   getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    var userData=app.globalData.userInfo
-    console.log(userData)
+    var userInfo = e.detail.userInfo
     this.setData({
-      userInfo: e.detail.userInfo,
+      userInfo,
       hasUserInfo: true
     })
-    wx.reLaunch({
-      url: '/pages/home/home',
-    })
+
     wx.login({
       success:function(res){
-        console.log(res.code)
-        var data={code:res.code,gender:userData.gender,image:userData.avatarUrl,nickname:userData.nickName}
-        console.log(data)
+        var data = {
+          nickname: userInfo.nickName,
+          gender: userInfo.gender,
+          image: userInfo.avatarUrl,
+          code: res.code,
+        }
         app.postData('/user/login',data,function(res){
-          console.log(123);
-          app.globalData.headerSn = res.data.data.sn;
-          console.log(res.data);
-          console.log(app.globalData.headerSn)
-         
-          //获取积分等数据
-          app.getData('/user/self',function(res){
-            app.globalData.userInfo=res.data.data
-            app.globalData.score=res.data.data.score
-            console.log(res.data)
-
-          })
+          if (res.data.code == 200) {
+            app.globalData.headerSn = res.data.data.sn;
+            wx.reLaunch({
+              url: '/pages/home/home',
+            })
+          }
         })
       }
     })

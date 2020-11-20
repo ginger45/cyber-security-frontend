@@ -47,6 +47,8 @@ App({
       }
     })
   },
+
+  // 修改数据接口
   putData:function(api,data,callback){
     const that = this;
     wx.request({
@@ -81,6 +83,7 @@ App({
       }
     })
   },
+
   // 获取用户信息
   getUserInfo:function(){
     const that = this;
@@ -89,12 +92,13 @@ App({
       that.globalData.userInfo = res.data;
     });
   },
+
   globalData: {
-    baseUrl:"https://cs.lyxiang.xyz",
+    baseUrl: "https://cs.lyxiang.xyz",
+    staticUrl: "https://static.lyxiang.xyz",
     userInfo: null,
-    headerSn:"YzJjY2I3MzE5YzViYzcyNl8zNjkwNjUxNTExLzEwMzc=",
+    headerSn: "YzJjY2I3MzE5YzViYzcyNl8zNjkwNjUxNTExLzEwMzc=",
     score:0,
     questionList:{}
   }
 })
-
