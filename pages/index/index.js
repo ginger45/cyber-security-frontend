@@ -22,7 +22,6 @@ Page({
     // 检查有没有用户信息
     if (app.globalData.userInfo) {
       this.setData({
-        // userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
     } else if (this.data.canIUse){
@@ -38,7 +37,6 @@ Page({
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
-          // app.globalData.userInfo = res.userInfo
           this.setData({
             userInfo: res.userInfo,
             hasUserInfo: true
