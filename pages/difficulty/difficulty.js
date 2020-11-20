@@ -11,15 +11,21 @@ Page({
     difficulty_logo: app.globalData.staticUrl+"/images/difficulty_logo.png"
   },
 
-  changetoanswer:function(){
+  changetoanswer:function(event){
+    var type = event.target.dataset.type;
     // 获取题目并跳转页面
-    app.getData('/question?type=2',function(res){
-      console.log(res.data)
-      app.globalData.questionList=res.data.data.questionList
-      console.log(app.globalData.questionList)
-      wx.navigateTo({
-        url: '../answer/answer',
-      })
+    app.getData('/question?type='+type,function(res){
+      if (res.data.code == 200) {
+        app.globalData.questionList=res.data.data.questionList
+        console.log(app.globalData.questionList)
+        wx.navigateTo({
+          url: '../answer/answer',
+        })
+      } else if (res.data.code == 401) {
+        wx.navigateTo({
+          url: '../index/index',
+        })
+      }
     })
   },
 
@@ -27,12 +33,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var sn=app.globalData.headerSn;
-    console.log(sn);
-    console.log(123);
-
-    
-
+    console.log(app.globalData.headerSn);
   },
 
   /**

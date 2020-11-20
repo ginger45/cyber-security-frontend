@@ -99,6 +99,6 @@ App({
     userInfo: null,
     headerSn: "YzJjY2I3MzE5YzViYzcyNl8zNjkwNjUxNTExLzEwMzc=",
     score:0,
-    questionList:{}
+    questionList:[]
   }
 })

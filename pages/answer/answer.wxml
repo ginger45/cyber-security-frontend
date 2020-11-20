@@ -18,7 +18,13 @@
           </text>
         </view>
         <!--选项-->
-        <view class="option">
+        <view wx:if="{{type == 1}}" class="option">
+          <radio-group class="radio-group" name="radio" bindchange="radioChange"> 
+            <radio class="radio" wx:key="optionId" value="1">正确</radio>
+            <radio class="radio" wx:key="optionId" value="0">错误</radio>
+          </radio-group>
+        </view>
+        <view wx:else if="{{type == 2}}" class="option">
           <radio-group class="radio-group" name="radio" bindchange="radioChange"> 
             <radio class="radio" wx:for="{{question.optionList}}" wx:key="optionId" value="{{item.optionId}}" checked="{{item.checked}}">
                   <text>{{item.content}}</text>
@@ -26,7 +32,7 @@
           </radio-group>
         </view>
         <view class="btn-area">
-          <button class="button" formType="submit" bindtap="showDialogBtn">确认</button>
+          <button class="button" formType="submit">确认</button>
           <button wx:if="{{item<9}}" bindtap="nextQue" class="button"> 下一题</button>
         </view>
       
@@ -37,7 +43,9 @@
 </view>
 
 <view class="modal_mask" bindtap="hideModal" wx:if="{{showModal}}"></view>
-<view class="modal_dialog" style="background:url('{{staticUrl}}/images/answer_result.png') center center no-repeat; width:60%; height:70%; background-size: cover;" wx:if="{{showModal}}">
+<view class="modal_dialog" style="background:url('{{staticUrl}}/images/answer_right.png') center center no-repeat; width:60%; height:70%; background-size: cover;" wx:if="{{showModal == 1}}">
+</view>
+<view class="modal_dialog" style="background:url('{{staticUrl}}/images/answer_wrong.png') center center no-repeat; width:60%; height:70%; background-size: cover;" wx:if="{{showModal == 2}}">
 </view>
 <view class="okBtn" bindtap="hideModal" style="background:url('{{staticUrl}}/images/ok_btn.png') center center no-repeat; width:20%; height:5%; background-size: cover;"  wx:if="{{showModal}}">
 </view>

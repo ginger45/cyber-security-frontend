@@ -9,51 +9,32 @@ Page({
   data: {
     staticUrl: app.globalData.staticUrl,
     questionList:[],
-    questionId:0,
-
-    //界面渲染相关
     item:0,
     question:{},
-    
-    //items: [],
-
-    showModal: false
+    questionId:0,
+    type: 0,
+    showModal: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    if(app.globalData.questionList){
-      questions=app.globalData.questionList
-      question=questions[this.data.item]
-      this.data.questionList=questions
-      this.data.questionId=question.questionId
+  onLoad: function () {
+    this.data.questionList = app.globalData.questionList
+    console.log(this.data.questionList)
+    if (this.data.questionList) {
+      var question = this.data.questionList[this.data.item];
       this.setData({
-        //questionList:questions,
-        question:question,
-        //questionId:question.questionId,
-        //items:question.optionList
-    
+        question,
+        questionId: question.questionId,
+        type: question.type,
       })
-      console.log(1)
-      console.log(this.data.questionList)
-      console.log(this.data.question)
-
     }
-    else{
-      console.log(2)
-    }
-    
-    
-    
-
   },
-
 
   //点下一题重新渲染界面
   nextQue:function(){
-    this.data.item+=1
+    this.data.item += 1
     //var questions=app.globalData.questionList
     question=questions[this.data.item]
     this.data.questionId=question.questionId
@@ -66,28 +47,34 @@ Page({
 
   },
 
+  // 显示测试
   radioChange: function (e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
   },
- //确认提交答案
+
+  //确认提交答案
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value.radio)
-   var id=this.data.questionId
-   var item={answerList:"["+ e.detail.value.radio +"]"}
-    app.postData('/question/'+id,item,function(res){
-      console.log(res.data)
+    var that = this;
+    var data={
+      answerList: "["+ e.detail.value.radio +"]"
+    }
+    app.postData('/question/'+that.data.questionId,data,function(res){
+      if (res.data.code == 200) {
+        that.setData({
+          showModal: 1
+        })
+      } else if (res.data.code == 402) {
+        that.setData({
+          showModal: 2
+        })
+      }
     })
   },
-  
-  showDialogBtn: function() {
-      this.setData({
-        showModal: true
-      })
-    },
 
   hideModal: function () {
     this.setData({
-      showModal: false
+      showModal: 0
     });
   },
   /**
