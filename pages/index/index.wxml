@@ -5,10 +5,10 @@
     </view>
     <view class="userinfo">
       <button wx:if="{{!hasUserInfo && canIUse}}" class="confirm_button" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
-        <image src="../../images/confirm_button.png" mode="aspectFit"></image>
+        <image src="{{staticUrl}}/images/confirm_button.png" mode="aspectFit"></image>
       </button>
       <button wx:else class="confirm_button" bindtap="goSign">
-        <image src="../../images/confirm_button.png" mode="aspectFit"></image>
+        <image src="{{staticUrl}}/images/confirm_button.png" mode="aspectFit"></image>
       </button>
       <!-- <block wx:else>
         <image bindtap="goSign" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>

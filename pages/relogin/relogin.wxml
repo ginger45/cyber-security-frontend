@@ -5,7 +5,7 @@
     </view>
     <view class="userinfo">
       <button class="confirm_button" bindtap="goSign">
-        <image src="../../images/confirm_button.png" mode="aspectFit"></image>
+        <image src="{{staticUrl}}/images/confirm_button.png" mode="aspectFit"></image>
       </button>
     
     </view>

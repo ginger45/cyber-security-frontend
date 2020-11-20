@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
+    staticUrl: app.globalData.staticUrl,
+    userInfo: {},  // 服务器的用户数据
     score: 0,
     showModal: false,
   },

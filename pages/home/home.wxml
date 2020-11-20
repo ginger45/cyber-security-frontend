@@ -1,6 +1,6 @@
 <!--pages/home.wxml-->
 <view class="container">
-  <image class="bgImg" src="../../images/home.png"></image>
+  <image class="bgImg" src="{{staticUrl}}/images/home.png"></image>
   <view class="content">
     <view class="userInfo">
       <view class="user">
@@ -10,7 +10,7 @@
       <view class="sign_score">
         <view class="signBtn" bindtap="signEveryDay">点击签到</view>
         <view class="scores">
-          <image class="score_icon" src="../../images/score_icon.png" mode="aspectFit"></image>
+          <image class="score_icon" src="{{staticUrl}}/images/score_icon.png" mode="aspectFit"></image>
           <text class="score_num"> 积 分: {{score}}</text>
         </view>
       </view>
@@ -28,7 +28,7 @@
 </view>
 
 <view class="modal_mask" bindtap="hideModal" wx:if="{{showModal}}"></view>
-<view class="modal_dialog" style="background:url('../../images/sign_success.png') center center no-repeat; width:100%; height:70%; background-size: cover;" wx:if="{{showModal}}">
+<view class="modal_dialog" style="background:url('{{staticUrl}}/images/sign_success.png') center center no-repeat; width:100%; height:70%; background-size: cover;" wx:if="{{showModal}}">
 </view>
-<view class="okBtn" bindtap="hideModal" style="background:url('../../images/ok_btn.png') center center no-repeat; width:20%; height:5%; background-size: cover;"  wx:if="{{showModal}}">
+<view class="okBtn" bindtap="hideModal" style="background:url('{{staticUrl}}/images/ok_btn.png') center center no-repeat; width:20%; height:5%; background-size: cover;"  wx:if="{{showModal}}">
 </view>

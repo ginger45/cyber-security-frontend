@@ -1,10 +1,10 @@
 <!--pages/rank/rank.wxml-->
 <view class="container">
-  <image class="bgImg" src="../../images/home.png" >
+  <image class="bgImg" src="{{staticUrl}}/images/home.png" >
   </image>
   <view class="mainblock">
     <!--排行榜字体-->
-      <image class="title" src="../../images/rank字体.png" mode="aspectFit" ></image>
+      <image class="title" src="{{staticUrl}}/images/rank字体.png" mode="aspectFit" ></image>
       <!--排名显示区-->
       <view class="rankshow">
       <view class="item-box">
@@ -13,7 +13,7 @@
             <view class="inner txt">
               <!--名次-->
               <i>1</i>
-              <image class="item-icon" mode="widthFix" src="../../images/圆圈.png"></image>
+              <image class="item-icon" mode="widthFix" src="{{staticUrl}}/images/圆圈.png"></image>
               <i>名字</i>
               <i class="score">分数</i>
             </view>

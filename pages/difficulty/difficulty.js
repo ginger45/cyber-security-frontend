@@ -6,8 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    background: '../../images/difficulty_bg.jpg',
-    difficulty_logo: "../../images/difficulty_logo.png"
+    staticUrl: app.globalData.staticUrl,
+    background: app.globalData.staticUrl+'/images/difficulty_bg.jpg',
+    difficulty_logo: app.globalData.staticUrl+"/images/difficulty_logo.png"
   },
 
   changetoanswer:function(){

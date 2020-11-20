@@ -1,11 +1,14 @@
 // pages/relogin/relogin.js
+//获取应用实例
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    staticUrl: app.globalData.staticUrl,
   },
   goSign() {
     wx.reLaunch({
