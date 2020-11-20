@@ -24,12 +24,19 @@
             <radio class="radio" wx:key="optionId" value="0">错误</radio>
           </radio-group>
         </view>
-        <view wx:else if="{{type == 2}}" class="option">
-          <radio-group class="radio-group" name="radio" bindchange="radioChange"> 
-            <radio class="radio" wx:for="{{question.optionList}}" wx:key="optionId" value="{{item.optionId}}" checked="{{item.checked}}">
+        <view wx:if="{{type == 2}}" class="option">
+          <radio-group class="radio-group" name="radio" bindchange="changeTest"> 
+            <radio class="radio" wx:for="{{question.optionList}}" wx:key="optionId" value="{{item.optionId}}" >
                   <text>{{item.content}}</text>
             </radio>
           </radio-group>
+        </view>
+        <view wx:if="{{type == 3}}" class="option">
+          <checkbox-group class="checkbox-group" name="checkbox"  bindchange="changeTest">
+            <checkbox class="checkbox" wx:for="{{question.optionList}}"  wx:key="optionId" value="{{item.optionId}}">
+                  <text>{{item.content}}</text>
+            </checkbox>
+          </checkbox-group>
         </view>
         <view class="btn-area">
           <button class="button" formType="submit">确认</button>

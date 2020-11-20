@@ -39,27 +39,31 @@ Page({
     question=questions[this.data.item]
     this.data.questionId=question.questionId
     this.setData({
-      //questionId:question.questionId,
       item:this.data.item,
       question:question,
-      //items:question.optionList
     })
-
   },
 
   // 显示测试
-  radioChange: function (e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
+  changeTest: function (e) {
+    console.log('发生change事件，携带value值为：', e.detail.value)
   },
 
   //确认提交答案
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value.radio)
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var that = this;
-    var data={
-      answerList: "["+ e.detail.value.radio +"]"
+    var data = {};
+    if (that.data.type == 3) {
+      data.answerList = JSON.stringify(e.detail.value.checkbox.map(function(v) {
+        return parseInt(v, 10);
+      }))
+    } else {
+      data.answerList = "["+ e.detail.value.radio +"]";
     }
+    console.log(data)
     app.postData('/question/'+that.data.questionId,data,function(res){
+      console.log(res.data)
       if (res.data.code == 200) {
         that.setData({
           showModal: 1
