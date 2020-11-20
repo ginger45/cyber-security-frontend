@@ -35,13 +35,18 @@ Page({
   //点下一题重新渲染界面
   nextQue:function(){
     this.data.item += 1
-    //var questions=app.globalData.questionList
-    question=questions[this.data.item]
-    this.data.questionId=question.questionId
-    this.setData({
-      item:this.data.item,
-      question:question,
-    })
+    if (this.data.item < this.data.questionList.length) {
+      var question = this.data.questionList[this.data.item]
+      this.setData({
+        question,
+        questionId: question.questionId,
+        type: question.type,
+      })
+    } else {
+      wx.navigateTo({
+        url: '../home/home',
+      })
+    }
   },
 
   // 显示测试
@@ -61,9 +66,7 @@ Page({
     } else {
       data.answerList = "["+ e.detail.value.radio +"]";
     }
-    console.log(data)
     app.postData('/question/'+that.data.questionId,data,function(res){
-      console.log(res.data)
       if (res.data.code == 200) {
         that.setData({
           showModal: 1

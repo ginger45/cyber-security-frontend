@@ -40,7 +40,7 @@
         </view>
         <view class="btn-area">
           <button class="button" formType="submit">确认</button>
-          <button wx:if="{{item<9}}" bindtap="nextQue" class="button"> 下一题</button>
+          <button class="button" bindtap="nextQue"> 下一题</button>
         </view>
       
       </form>
