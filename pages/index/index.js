@@ -5,8 +5,8 @@ const app = getApp()
 Page({
   data: {
     staticUrl: app.globalData.staticUrl,
-    background: app.globalData.staticUrl+'/images/index_bg.png',
-    index_logo: app.globalData.staticUrl+'/images/index_logo.png',
+    background: '../../images/index_bg.png',
+    index_logo: '../../images/index_logo.png',
     motto: 'Hello World',
     userInfo: {},  // 从微信获取的用户信息
     hasUserInfo: false,

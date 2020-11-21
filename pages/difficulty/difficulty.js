@@ -7,8 +7,8 @@ Page({
    */
   data: {
     staticUrl: app.globalData.staticUrl,
-    background: app.globalData.staticUrl+'/images/difficulty_bg.jpg',
-    difficulty_logo: app.globalData.staticUrl+"/images/difficulty_logo.png"
+    background: '../../images/difficulty_bg.jpg',
+    difficulty_logo: "../../images/difficulty_logo.png"
   },
 
   changetoanswer:function(event){

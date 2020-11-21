@@ -1,9 +1,9 @@
 <!--pages/answer/answer.wxml-->
 <view class="container">
-  <image class="bgImg" src="{{staticUrl}}/images/答题背景.png" ></image>
+  <image class="bgImg" src="../../images/答题背景.png" ></image>
 
   <view class="putpic">
-    <image class="smallpic" mode="aspectFit" src="{{staticUrl}}/images/举手图.png"></image>
+    <image class="smallpic" mode="aspectFit" src="../../images/举手图.png"></image>
   </view>
 
   <!--透明区域-->
