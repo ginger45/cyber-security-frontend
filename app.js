@@ -97,7 +97,7 @@ App({
     baseUrl: "https://cs.lyxiang.xyz",
     staticUrl: "https://static.lyxiang.xyz",
     userInfo: null,
-    headerSn: "MDE2ZjBjOWVlZGZlZmQ3NV8zMzIwNjM5NDg2LzY1MTE=",
+    headerSn: "ZWZkMjlkMDQ5ZDA0MzcyM18zNTIwMzIzNTQ4LzIyMg==",
     score:0,
     questionList:[]
   }
