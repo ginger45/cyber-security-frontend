@@ -1,6 +1,6 @@
 // pages/answer/answer.js
 const app=getApp()
-var questions,question
+var questions,question,length
 Page({
 
   /**
@@ -11,46 +11,61 @@ Page({
     questionList:[],
     item:0,
     question:{},
-    questionId:0,
-    type: 0,
-    showModal: 0
+    length:0,
+    
+    //questionId:0,
+    //type: 0,
+    showModal: 0,
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    
     this.data.questionList = app.globalData.questionList
     console.log(this.data.questionList)
     if (this.data.questionList) {
       var question = this.data.questionList[this.data.item];
+      length=this.data.questionList.length;
+      console.log(length)
       this.setData({
         question,
-        questionId: question.questionId,
-        type: question.type,
+        length,
+        // questionId: question.questionId,
+        // type: question.type,
       })
+      console.log(this.data.length)
     }
   },
 
   //点下一题重新渲染界面
   nextQue:function(){
     this.data.item += 1
-    if (this.data.item < this.data.questionList.length) {
+    // if (this.data.item < this.data.questionList.length) 
       var question = this.data.questionList[this.data.item]
       this.setData({
         question,
-        questionId: question.questionId,
-        type: question.type,
+        item:this.data.item
+        // length,
+        // questionId: question.questionId,
+        // type: question.type,
       })
-    } else {
-      wx.navigateTo({
-        url: '../home/home',
-      })
-    }
+   
+    
+      
+    
+  },
+  changetohome:function(){
+    wx.reLaunch({
+      url: '../home/home',
+    })
+
   },
 
   // 显示测试
-  changeTest: function (e) {
+  radioChange: function (e) {
     console.log('发生change事件，携带value值为：', e.detail.value)
   },
 
@@ -59,14 +74,15 @@ Page({
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var that = this;
     var data = {};
-    if (that.data.type == 3) {
+    if (that.data.question.type == 3) {
       data.answerList = JSON.stringify(e.detail.value.checkbox.map(function(v) {
         return parseInt(v, 10);
       }))
     } else {
       data.answerList = "["+ e.detail.value.radio +"]";
     }
-    app.postData('/question/'+that.data.questionId,data,function(res){
+    app.postData('/question/'+that.data.question.questionId,data,function(res){
+      console.log(res.data)
       if (res.data.code == 200) {
         that.setData({
           showModal: 1
@@ -98,6 +114,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
     
 
   },

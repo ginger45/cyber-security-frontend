@@ -9,18 +9,20 @@
 .mainblock{
   position: absolute;
   top: 15%;
-  height:80vh;
+  height:75vh;
   left: 10%;
   right: 10%;
   opacity: 0.5;
   border-radius: 5%;
   background-color:  #fff;
-  z-index: -55;
+  z-index: -11;
+  
 }
 /*举手图*/
 .smallpic{
   height: 100%;
   width: 100%;
+  
 }
 /*放举手图*/
 .putpic{
@@ -29,13 +31,16 @@
   left: 22%;
   right: 22%;
   height: 15%;
+
 }
 /*题目区*/
 .titleblock{
   position: absolute;
   width: 100%;
-  top: 10%;
+  top: 11%;
   height: 82%;
+  overflow: auto;
+  padding-top: 5rpx;
 }
 
 .radio {
@@ -43,6 +48,17 @@
   border-top: 2px solid #ddd;
   padding: 5px;
 }
+.checkbox{
+  display: block;
+  border-top: 1px solid #ddd;
+  padding: 2px;
+
+}
+
+radio .wx-radio-input,checkbox .wx-checkbox-input{
+  flex: none;
+}
+
 
 .button{
   margin-top: 5%;
