@@ -56,22 +56,22 @@ Page({
   },
 
   onLoad: function () {
-    const that=this
-    //获取用户自己的信息
-    app.getData('/user/self',function(res){
-      if (res.data.code == 200) {
-        app.globalData.userInfo=res.data.data
-        app.globalData.score=res.data.data.score
-        that.setData({
-          userInfo: app.globalData.userInfo,
-          score: app.globalData.score
-        })
-      } else if (res.data.code == 401) {
-        wx.navigateTo({
-          url: '../index/index',
-        })
-      }
-    })
+    // const that=this
+    // //获取用户自己的信息
+    // app.getData('/user/self',function(res){
+    //   if (res.data.code == 200) {
+    //     app.globalData.userInfo=res.data.data
+    //     app.globalData.score=res.data.data.score
+    //     that.setData({
+    //       userInfo: app.globalData.userInfo,
+    //       score: app.globalData.score
+    //     })
+    //   } else if (res.data.code == 401) {
+    //     wx.navigateTo({
+    //       url: '../index/index',
+    //     })
+    //   }
+    // })
 
     // if (app.globalData.userInfo) {
     //   this.setData({
@@ -101,6 +101,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const that=this
+    //获取用户自己的信息
+    app.getData('/user/self',function(res){
+      if (res.data.code == 200) {
+        app.globalData.userInfo=res.data.data
+        app.globalData.score=res.data.data.score
+        that.setData({
+          userInfo: app.globalData.userInfo,
+          score: app.globalData.score
+        })
+      } else if (res.data.code == 401) {
+        wx.navigateTo({
+          url: '../index/index',
+        })
+      }
+    })
 
   },
 
