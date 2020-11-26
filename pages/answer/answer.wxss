@@ -12,9 +12,8 @@
   height:75vh;
   left: 10%;
   right: 10%;
-  opacity: 0.5;
   border-radius: 5%;
-  background-color:  #fff;
+  background-color:rgb(255, 255, 255, 0.5);
   z-index: -11;
   
 }
@@ -40,23 +39,36 @@
   top: 11%;
   height: 82%;
   overflow: auto;
-  padding-top: 5rpx;
+  padding: 5rpx;
+  font-family: STHeiti Light;
+}
+
+.title{
+  padding-left: 20rpx;
+  padding-right: 10rpx;
+  font-weight: bold;
+  font-size: large;
 }
 
 .radio {
   display: block;
-  border-top: 2px solid #ddd;
-  padding: 5px;
+  border-top: 2px solid rgb(7, 7, 7);
+  padding: 10rpx;
+  padding-right: 20rpx;
+  border: none;
+  font-weight: bold;
 }
+
 .checkbox{
   display: block;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid rgb(12, 12, 12);
   padding: 2px;
-
+  border: none;
 }
 
 radio .wx-radio-input,checkbox .wx-checkbox-input{
   flex: none;
+  transform: scale(0.6,0.6);
 }
 
 
@@ -64,7 +76,7 @@ radio .wx-radio-input,checkbox .wx-checkbox-input{
   margin-top: 5%;
   margin-left: 30%;
   margin-right: 30%;
-  background-color: rgb(37, 199, 59);
+  background-color: rgb(37, 199, 59, 0.7);
   border-radius: 5%;
 }
 
